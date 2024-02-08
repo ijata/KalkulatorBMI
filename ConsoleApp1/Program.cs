@@ -4,20 +4,21 @@ double wzrost;
 double bmi;
 string wynik = "";
 
-Console.WriteLine("Kalkulator BMI");
+Console.WriteLine("Kalkulator BMI \n");
 Console.ReadKey();
 
-Console.WriteLine("Podaj wagę w kg:");
+Console.Write("Podaj wagę w kg:");
 string userwaga = Console.ReadLine();
-Console.WriteLine("Podaj wyskokość w metrach:");
+
+Console.Write("Podaj wyskokość w metrach:");
 string userwzrost = Console.ReadLine();
 
 if(double.TryParse(userwaga, out waga))
 {
     if(double.TryParse(userwzrost, out wzrost))
     {
-        bmi = waga / (wzrost * wzrost);
-        Console.WriteLine(bmi);
+        bmi = Math.Round((waga / (wzrost * wzrost)),2);
+        Console.Write(bmi);
 
         if (bmi < 18.5)
         {
@@ -40,7 +41,7 @@ if(double.TryParse(userwaga, out waga))
             wynik = "otyłość olbrzymia";
         }
 
-        Console.WriteLine(wynik);
+        Console.WriteLine(" => " + wynik);
     }
     else {
         Console.WriteLine("nieprawidłowa wartość dla parametru wzrost");
